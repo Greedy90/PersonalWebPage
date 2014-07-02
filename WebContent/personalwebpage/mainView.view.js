@@ -16,6 +16,50 @@ function setContentHomePanel(oController) {
 	homePanelRef.addContent(homePanelLayout);
 }
 
+function setContentAboutMePanel(oController) {
+	var aboutMePanelRef = sap.ui.getCore().byId("aboutMePanelId");
+	
+	var aboutMePanelLayout = new sap.ui.commons.layout.MatrixLayout({
+		columns: 2,
+		width: "100%"
+	});
+	
+	aboutMePanelRef.addContent(aboutMePanelLayout);
+}
+
+function setContentWorkExperiencePanel(oController) {
+	var workExperiencePanelRef = sap.ui.getCore().byId("workExperiencePanelId");
+	
+	var workExperienceLayout = new sap.ui.commons.layout.MatrixLayout({
+		columns: 2,
+		width: "100%"
+	});
+	
+	workExperiencePanelRef.addContent(workExperienceLayout);
+}
+
+function setContentGitHubPanel(oController) {
+	var gitHubPanelRef = sap.ui.getCore().byId("gitHubPanelId");
+	
+	var gitHubLayout = new sap.ui.commons.layout.MatrixLayout({
+		columns: 2,
+		width: "100%"
+	});
+	
+	gitHubPanelRef.addContent(gitHubLayout);
+}
+
+function setContentContactsPanel(oController) {
+	var contactsPanelRef = sap.ui.getCore().byId("contactsPanelId");
+	
+	var contactsLayout = new sap.ui.commons.layout.MatrixLayout({
+		columns: 2,
+		width: "100%"
+	});
+	
+	contactsPanelRef.addContent(contactsLayout);
+}
+
 sap.ui.jsview("personalwebpage.mainView", {
 
 	/**
@@ -39,6 +83,30 @@ sap.ui.jsview("personalwebpage.mainView", {
 		});
 		setContentHomePanel(oController);
 		
+		var aboutMePanel = new sap.ui.commons.Panel("aboutMePanelId", {
+			showCollapseIcon: false,
+			title: new sap.ui.core.Title({text: "Personal Profile"})
+		});
+		setContentAboutMePanel(oController);
+		
+		var workExperiencePanel = new sap.ui.commons.Panel("workExperiencePanelId", {
+			showCollapseIcon: false,
+			title: new sap.ui.core.Title({text: "Previous Work Experience"})
+		});
+		setContentWorkExperiencePanel(oController);
+		
+		var gitHubPanel = new sap.ui.commons.Panel("gitHubPanelId", {
+			showCollapseIcon: false,
+			title: new sap.ui.core.Title({text: "Personal Repository"})
+		});
+		setContentGitHubPanel(oController);
+		
+		var contactsPanel = new sap.ui.commons.Panel("contactsPanelId", {
+			showCollapseIcon: false,
+			title: new sap.ui.core.Title({text: "Contact Me"})
+		});
+		setContentContactsPanel(oController);
+		
 		var mainShell = new sap.ui.ux3.Shell("mainShellId", {
 			appTitle: "Welcome to my home page",
 			showLogoutButton: false,
@@ -50,13 +118,29 @@ sap.ui.jsview("personalwebpage.mainView", {
 			//designType: sap.ui.ux3.ShellDesignType.Crystal,
 			headerType: sap.ui.ux3.ShellHeaderType.Standard,
 			designType: sap.ui.ux3.ShellDesignType.Standard,
-			worksetItems: [new sap.ui.ux3.NavigationItem("navHome", {text: "Home"})],
+			worksetItems: [new sap.ui.ux3.NavigationItem("navHome", {text: "Home"}),
+			               new sap.ui.ux3.NavigationItem("navAboutMe", {text: "About Me"}),
+			               new sap.ui.ux3.NavigationItem("navWorkExp", {text: "Work Experience"}),
+			               new sap.ui.ux3.NavigationItem("navGitHub", {text: "GitHub"}),
+			               new sap.ui.ux3.NavigationItem("navContacts", {text: "Contacts"})],
 			worksetItemSelected: function(oEvent) {
 				var sId = oEvent.getParameter("id");
 				var mainShellRef = oEvent.oSource;
 				switch(sId) {
 					case "navHome":
 						mainShellRef.setContent(homePanel);
+						break;
+					case "navAboutMe":
+						mainShellRef.setContent(aboutMePanel);
+						break;
+					case "navWorkExp":
+						mainShellRef.setContent(workExperiencePanel);
+						break;
+					case "navGitHub":
+						mainShellRef.setContent(gitHubPanel);
+						break;
+					case "navContacts":
+						mainShellRef.setContent(contactsPanel);
 						break;
 					default:
 						mainShellRef.setContent(homePanel);
