@@ -1,62 +1,141 @@
 function setContentHomePanel(oController) {
 	var homePanelRef = sap.ui.getCore().byId("homePanelId");
-	
+
 	var homePanelLayout = new sap.ui.commons.layout.MatrixLayout({
 		columns: 1,
 		width: "100%"
 	});
-	
+
 	var constructionSiteImg = new sap.ui.commons.Image({src: "images/under_construction.jpg"});
 	var constructionSiteImgCell = new sap.ui.commons.layout.MatrixLayoutCell({
 		content: [constructionSiteImg],
 		hAlign: sap.ui.core.TextAlign.Center
 	});
 	homePanelLayout.createRow(constructionSiteImgCell);
-	
+
 	homePanelRef.addContent(homePanelLayout);
 }
 
 function setContentAboutMePanel(oController) {
 	var aboutMePanelRef = sap.ui.getCore().byId("aboutMePanelId");
-	
+
 	var aboutMePanelLayout = new sap.ui.commons.layout.MatrixLayout({
 		columns: 2,
 		width: "100%"
 	});
-	
+
 	aboutMePanelRef.addContent(aboutMePanelLayout);
 }
 
 function setContentWorkExperiencePanel(oController) {
 	var workExperiencePanelRef = sap.ui.getCore().byId("workExperiencePanelId");
-	
+
 	var workExperienceLayout = new sap.ui.commons.layout.MatrixLayout({
 		columns: 2,
 		width: "100%"
 	});
-	
+
 	workExperiencePanelRef.addContent(workExperienceLayout);
 }
 
 function setContentGitHubPanel(oController) {
 	var gitHubPanelRef = sap.ui.getCore().byId("gitHubPanelId");
-	
+
 	var gitHubLayout = new sap.ui.commons.layout.MatrixLayout({
 		columns: 2,
 		width: "100%"
 	});
-	
+
 	gitHubPanelRef.addContent(gitHubLayout);
 }
 
 function setContentContactsPanel(oController) {
 	var contactsPanelRef = sap.ui.getCore().byId("contactsPanelId");
-	
+
 	var contactsLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 2,
-		width: "100%"
+		columns: 3,
+		width: "90%",
+		widths: ["10%", "15%", "75%"]
 	});
+
+	var iconPicture = new sap.ui.commons.Image({
+		alt: "Mail icon",
+		src: "images/Mail-icon.png",
+		width: "25px",
+		press: function(oEvent) {
+			window.open("mailto:marco.terrinoni@cryptolab.net");
+		}
+	});
+	var firstMailField = new sap.ui.commons.TextView({text: "marco dot terrinoni at cryptolab dot net"});
+	var firstMailCell = new sap.ui.commons.layout.MatrixLayoutCell({
+		colSpan: 2,
+		hAlign: sap.ui.commons.layout.HAlign.Left,
+		content: [firstMailField]
+	});
+	contactsLayout.createRow(iconPicture, firstMailCell);
 	
+	var pubKeyBtn = new sap.ui.commons.Button({
+		text: "Get my Public Key (PGP)",
+		style: sap.ui.commons.ButtonStyle.Emph,
+		press: function(oEvent) {
+			var pubKeyString = new sap.ui.commons.TextView({text: "my_public_key_demo_representation" +
+					"my_public_key_demo_representationmy_public_key_demo_representationmy_public_key_demo_representation" +
+					"my_public_key_demo_representationmy_public_key_demo_representationmy_public_key_demo_representation" +
+					"my_public_key_demo_representationmy_public_key_demo_representationmy_public_key_demo_representation" +
+					"my_public_key_demo_representationmy_public_key_demo_representationmy_public_key_demo_representation" +
+					"my_public_key_demo_representationmy_public_key_demo_representationmy_public_key_demo_representation"});
+			
+			var rsaKeyDialog = new sap.ui.commons.Dialog("rsaKeyDialogId", {
+				modal: true,
+				keepInWindow: true,
+				applyContentPadding: true,
+				width: "40%",
+				height: "30%",
+				title: "PGP - Public Key",
+				content: [pubKeyString],
+				closed: function(oEvent) {
+					sap.ui.getCore().byId("rsaKeyDialogId").destroy();
+				}
+			});
+			
+			rsaKeyDialog.open();
+		}
+	});
+	var pubKeyBtnCell = new sap.ui.commons.layout.MatrixLayoutCell({
+		colSpan: 2,
+		content: [pubKeyBtn]
+	});
+	var facebookIcon = new sap.ui.commons.Image({
+		alt: "Facebook Icon",
+		src: "images/Facebook-logo.png",
+		width: "20px",
+		press: function(oEvent) {
+			window.open("https://www.facebook.com/marco.terrinoni", "_blank");
+		}
+	});
+	var twitterIcon = new sap.ui.commons.Image({
+		alt: "Twitter Icon",
+		src: "images/Twitter-logo.png",
+		width: "20px",
+		press: function(oEvent) {
+			window.open("https://twitter.com/TerrinoniMarco", "_blank");
+		}
+	});
+	var linkedInIcon = new sap.ui.commons.Image({
+		alt: "LinkedIn Icon",
+		src: "images/linkedin-icon.png",
+		width: "20px",
+		press: function(oEvent) {
+			window.open("http://fr.linkedin.com/pub/marco-terrinoni/79/a66/963/", "_blank");
+		}
+	});
+	var socialLinksCell = new sap.ui.commons.layout.MatrixLayoutCell({
+		hAlign: sap.ui.commons.layout.HAlign.Left,
+		//colSpan: 2,
+		content: [facebookIcon, twitterIcon, linkedInIcon]
+	});
+	contactsLayout.createRow(pubKeyBtnCell, socialLinksCell);
+
 	contactsPanelRef.addContent(contactsLayout);
 }
 
