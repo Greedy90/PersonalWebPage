@@ -29,7 +29,6 @@ sap.ui.controller("personalwebpage.mainView", {
 	
 	getPubKey: function() {
 		return "-----BEGIN PGP PUBLIC KEY BLOCK-----\n" +
-	   	  	   "Version: GnuPG v1\n" +
 	   	  	   "\n" +
 	   	  	   "mQENBFOJd2EBCADSCUN5tySll7y3wmBlTUy1fL6xf3T/r7Jeo2bMj0/I2xuV0mO8\n" +
 	   	  	   "qO3ZpNG2pTy7+yh3EqXRngfEHsB6W7Ym8gaMfIpFYsE/8JZOCTfLZp+w8qs0zkpk\n" +
