@@ -23,18 +23,60 @@ function setContentAboutMePanel(oController) {
 		columns: 2,
 		width: "100%"
 	});
+	
+	var text = new sap.ui.commons.TextView({text: oController.getLoremIpsum()});
+	aboutMePanelLayout.createRow(text);
 
 	aboutMePanelRef.addContent(aboutMePanelLayout);
 }
 
 function setContentWorkExperiencePanel(oController) {
 	var workExperiencePanelRef = sap.ui.getCore().byId("workExperiencePanelId");
+	
+	var workExperienceLayout = new sap.ui.commons.layout.MatrixLayout({width: "90%"});
 
-	var workExperienceLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 2,
-		width: "100%"
+	var twoCareSubPanel = new sap.ui.commons.Panel({
+		collapsed: true,
+		title: new sap.ui.core.Title({
+			text: "Gruppo SAN|S2 - 2care",
+			icon: "images/gruppo_sans2.png"
+		})
 	});
-
+	var twoCareLayout = new sap.ui.commons.layout.MatrixLayout({
+		columns: 2,
+		width: "90%",
+		widths: ["80%", "20%"]
+	});
+	var twoCareDesc = new sap.ui.commons.TextView({text: oController.get2CareDesc()});
+	var twoCareLogo = new sap.ui.commons.Image({
+		alt: "2care",
+		src: "images/2care-logo.png"
+	});
+	twoCareLayout.createRow(twoCareDesc, twoCareLogo);
+	twoCareSubPanel.addContent(twoCareLayout);
+	workExperienceLayout.createRow(twoCareSubPanel);
+	
+	var optetSubPanel = new sap.ui.commons.Panel({
+		collapsed: true,
+		title: new sap.ui.core.Title({
+			text: "SAP Labs France - OPTET Project",
+			icon: "images/SAP-Logo.png"
+		})
+	});
+	var optetLayout = new sap.ui.commons.layout.MatrixLayout({
+		columns: 2,
+		width: "90%",
+		widths: ["70%", "30%"]
+	});
+	var optetDesc = new sap.ui.commons.TextView({text: oController.getOptetDesc()});
+	var optetLogo = new sap.ui.commons.Image({
+		alt: "OPTET Project",
+		src: "images/optet-logo.png"
+	});
+	optetLayout.createRow(optetDesc, optetLogo);
+	optetSubPanel.addContent(optetLayout);
+	workExperienceLayout.createRow(optetSubPanel);
+	
 	workExperiencePanelRef.addContent(workExperienceLayout);
 }
 
@@ -73,12 +115,10 @@ function setContentContactsPanel(oController) {
 		alt: "Mail icon",
 		src: "images/Mail-icon.png",
 		width: "25px",
-		press: function(oEvent) {
-			window.open("mailto:marco.terrinoni@cryptolab.net");
-		}
+		press: oController.getMailto
 	});
 	var firstMailField = new sap.ui.commons.TextView({
-		text: "marco dot terrinoni at cryptolab dot net",
+		text: oController.getMail(),
 		design: sap.ui.commons.TextViewDesign.H6
 	});
 	var firstMailCell = new sap.ui.commons.layout.MatrixLayoutCell({
@@ -92,7 +132,7 @@ function setContentContactsPanel(oController) {
 		text: "Get my Public Key (PGP)",
 		style: sap.ui.commons.ButtonStyle.Emph,
 		press: function(oEvent) {
-			var pubKeyString = new sap.ui.commons.TextView({ // TODO - modify this control in order to retrieve the key directly from an external file
+			var pubKeyString = new sap.ui.commons.TextView({
 				design: sap.ui.commons.TextViewDesign.Monospace,
 				text: oController.getPubKey()
 			});

@@ -27,9 +27,46 @@ sap.ui.controller("personalwebpage.mainView", {
  */
 //	onExit: function() {}
 	
-	getPubKey: function() {
+	getLoremIpsum: function() {
+		return "Lorem ipsum dolor sit amet, eleifend nullam ut ipsum pede non, p" +
+			   "urus facilisis lectus eget erat, suspendisse odio vel ac feugiat" +
+			   " ac leo, vitae sed sit tellus sit hendrerit mattis. Suscipit mau" +
+			   "ris etiam arcu. Leo condimentum qui risus leo, suspendisse non i" +
+			   "nteger vehicula, mauris pede eu similique, ipsum in dolor consec" +
+			   "tetuer odio. Consectetuer nisl pretium sed eleifend magnis moles" +
+			   "tie, montes egestas lacus vitae urna amet, aliquam tempus augue " +
+			   "interdum nunc urna vitae, arcu lectus bibendum est aliquam curae" +
+			   " vestibulum, mi ultrices ipsum duis orci. Ligula beatae dapibus " +
+			   "justo mi, neque lacinia magna pede accumsan, laoreet quam, morbi" +
+			   " ab in purus eu orci, pede sit sed et odio iste ut. Feugiat enim" +
+			   ", wisi fusce odio eu rutrum fermentum, integer nullam risus. Pur" +
+			   "us justo class nullam ipsum tristique placerat, eu sit faucibus," +
+			   " maecenas mi cursus etiam dis, ornare lorem in morbi luctus. Ris" +
+			   "us justo et nisl, ultricies placerat nulla metus lacinia mauris " +
+			   "mauris. Ultricies volutpat. Fringilla ligula quis, erat purus. N" +
+			   "unc justo tristique dapibus ut fusce nulla, sit nec eu, felis qu" +
+			   "ia lectus amet nec eu viverra, in ligula dolor neque consequat q" +
+			   "uis tortor, neque a hendrerit nec odio mollis.\n";
+	},
+	
+	get2CareDesc: function() {
+		return this.getLoremIpsum();
+	},
+	
+	getOptetDesc: function() {
+		return this.getLoremIpsum();
+	},
+	
+	getMailto: function(oEvent) {
+		window.open("mailto:marco.terrinoni@cryptolab.net");
+	},
+	
+	getMail: function() {
+		return "marco dot terrinoni at cryptolab dot net";
+	},
+	
+	getPubKey: function() { // TODO - modify this function in order to retrieve the key directly from an external file
 		return "-----BEGIN PGP PUBLIC KEY BLOCK-----\n" +
-	   	  	   "\n" +
 	   	  	   "mQENBFOJd2EBCADSCUN5tySll7y3wmBlTUy1fL6xf3T/r7Jeo2bMj0/I2xuV0mO8\n" +
 	   	  	   "qO3ZpNG2pTy7+yh3EqXRngfEHsB6W7Ym8gaMfIpFYsE/8JZOCTfLZp+w8qs0zkpk\n" +
 	   	  	   "sUgqPyc4MITrFG4xzBUX94IqrobWxk6lu4Jh6qIsVtjsdA4cptPOI5qigdbKGHJs\n" +
