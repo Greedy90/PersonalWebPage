@@ -36,7 +36,7 @@ function setContentWorkExperiencePanel(oController) {
 	var workExperienceLayout = new sap.ui.commons.layout.MatrixLayout({width: "90%"});
 
 	var twoCareSubPanel = new sap.ui.commons.Panel({
-		collapsed: true,
+		collapsed: false,
 		title: new sap.ui.core.Title({
 			text: "Gruppo SAN|S2 - 2care",
 			icon: "images/gruppo_sans2.png"
@@ -57,7 +57,7 @@ function setContentWorkExperiencePanel(oController) {
 	workExperienceLayout.createRow(twoCareSubPanel);
 	
 	var optetSubPanel = new sap.ui.commons.Panel({
-		collapsed: true,
+		collapsed: false,
 		title: new sap.ui.core.Title({
 			text: "SAP Labs France - OPTET Project",
 			icon: "images/SAP-Logo.png"

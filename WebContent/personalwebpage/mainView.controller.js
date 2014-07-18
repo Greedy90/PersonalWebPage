@@ -58,11 +58,37 @@ sap.ui.controller("personalwebpage.mainView", {
 	},
 	
 	getMailto: function(oEvent) {
-		window.open("mailto:marco.terrinoni@cryptolab.net");
+		var coded = "eyfU1.mIffZE1EZ@Ufxrm1Lyz.EIm";
+		var key = "h0qY3rHi2IUjymOlzS8RKMkQ1BCTEw4FGJfVZvp9WxecLat7ubsXD6gANo5Pdn";
+		var shift = coded.length;
+		var link = "";
+		for (var i = 0; i < coded.length; i++) {
+			if (key.indexOf(coded.charAt(i)) == -1) {
+				var ltr = coded.charAt(i);
+				link += (ltr);
+			} else {     
+				var ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length;
+				link += (key.charAt(ltr));
+			}
+		}
+		window.open("mailto:" + link);
 	},
 	
 	getMail: function() {
-		return "marco dot terrinoni at cryptolab dot net";
+		var coded = "1yVZO.JCVVLcOcL@ZVQSJO3yu.cCJ";
+		var key = "lN9Hi1xfeDjVTEzAcShKPUoBuJGQW3RavL0FgCmdqMswrZ5X8npO72I4kbtYy6";
+		var shift = coded.length;
+		var link = "";
+		for (var i = 0; i < coded.length; i++) {
+			if (key.indexOf(coded.charAt(i)) == -1) {
+				var ltr = coded.charAt(i);
+				link += (ltr);
+			} else {     
+				var ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length;
+				link += (key.charAt(ltr));
+			}
+		}
+		return link;
 	},
 	
 	getPubKey: function() { // TODO - modify this function in order to retrieve the key directly from an external file
