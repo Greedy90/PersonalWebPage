@@ -65,7 +65,7 @@ function setContentWorkExperiencePanel(oController) {
 	});
 	var optetLayout = new sap.ui.commons.layout.MatrixLayout({
 		columns: 2,
-		width: "90%",
+		width: "100%",
 		widths: ["70%", "30%"]
 	});
 	var optetDesc = new sap.ui.commons.TextView({text: oController.getOptetDesc()});
