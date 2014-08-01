@@ -1,142 +1,128 @@
 function setContentHomePanel(oController) {
 	var homePanelRef = sap.ui.getCore().byId("homePanelId");
 
-	var homePanelLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 1,
-		width: "100%"
+	var constructionSiteImg = new sap.ui.commons.Image({
+		src: "images/under_construction.jpg",
+		tooltip: "Web page under construction, please come back later...",
+		alt: "Web page under construction, please come back later..."
 	});
 
-	var constructionSiteImg = new sap.ui.commons.Image({src: "images/under_construction.jpg"});
-	var constructionSiteImgCell = new sap.ui.commons.layout.MatrixLayoutCell({
-		content: [constructionSiteImg],
-		hAlign: sap.ui.core.TextAlign.Center
-	});
-	homePanelLayout.createRow(constructionSiteImgCell);
-
-	homePanelRef.addContent(homePanelLayout);
+	homePanelRef.addContent(constructionSiteImg);
 }
 
 function setContentAboutMePanel(oController) {
 	var aboutMePanelRef = sap.ui.getCore().byId("aboutMePanelId");
 
-	var aboutMePanelLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 2,
-		width: "100%"
+	
+	var abouMeDesc = new sap.ui.commons.TextView("abouMeDescId", {text: oController.getAboutMe()});
+	var photo = new sap.ui.commons.Image("photoId", {
+		src: "images/marco.jpg",
+		tooltip: "Marco Terrinoni",
+		alt: "My photo",
+		width: "20%"
+	});
+
+	aboutMePanelRef.addContent(abouMeDesc);
+	aboutMePanelRef.addContent(photo);
+}
+
+function setContentUniversityPanel(oController) {
+	var universityPanelRef = sap.ui.getCore().byId("universityPanelId");
+	
+	var logoPolito = new sap.ui.commons.Image("logoPolitoId", {
+		src: "images/polito-logo.png",
+		tooltip: "Polytechnic University of Turin",
+		alt: "Polytechnic University of Turin",
+		width: "20%"
 	});
 	
-	var text = new sap.ui.commons.TextView({text: oController.getLoremIpsum()});
-	aboutMePanelLayout.createRow(text);
-
-	aboutMePanelRef.addContent(aboutMePanelLayout);
+	var logoEnsimag = new sap.ui.commons.Image("logoEnsimagId", {
+		src: "images/ensimag-logo.png",
+		tooltip: "École Nationale Supérieure d'Informatique et de Mathématiques Appliquées de Grenoble",
+		alt: "École Nationale Supérieure d'Informatique et de Mathématiques Appliquées de Grenoble",
+		width: "20%"
+	});
+	
+	var logoUJF = new sap.ui.commons.Image("logoUJFId", {
+		src: "images/ujf-logo.png",
+		tooltip: "Université Joseph Fourier",
+		alt: "Université Joseph Fourier",
+		width: "20%"
+	});
+	
+	universityPanelRef.addContent(logoPolito);
+	universityPanelRef.addContent(logoEnsimag);
+	universityPanelRef.addContent(logoUJF);
 }
 
 function setContentWorkExperiencePanel(oController) {
 	var workExperiencePanelRef = sap.ui.getCore().byId("workExperiencePanelId");
 	
-	var workExperienceLayout = new sap.ui.commons.layout.MatrixLayout({width: "90%"});
-
-	var twoCareSubPanel = new sap.ui.commons.Panel({
+	var twoCareSubPanel = new sap.ui.commons.Panel("twoCareSubPanelId", {
 		collapsed: false,
 		title: new sap.ui.core.Title({
 			text: "Gruppo SAN|S2 - 2care",
 			icon: "images/gruppo_sans2.png"
 		})
 	});
-	var twoCareLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 2,
-		width: "90%",
-		widths: ["80%", "20%"]
-	});
-	var twoCareDesc = new sap.ui.commons.TextView({text: oController.get2CareDesc()});
-	var twoCareLogo = new sap.ui.commons.Image({
+	var twoCareDesc = new sap.ui.commons.TextView("twoCareDescId", {text: oController.get2CareDesc()});
+	var twoCareLogo = new sap.ui.commons.Image("twoCareLogoId", {
 		alt: "2care",
 		src: "images/2care-logo.png"
 	});
-	twoCareLayout.createRow(twoCareDesc, twoCareLogo);
-	twoCareSubPanel.addContent(twoCareLayout);
-	workExperienceLayout.createRow(twoCareSubPanel);
+	twoCareSubPanel.addContent(twoCareDesc);
+	twoCareSubPanel.addContent(twoCareLogo);
+	workExperiencePanelRef.addContent(twoCareSubPanel);
 	
-	var optetSubPanel = new sap.ui.commons.Panel({
+	var optetSubPanel = new sap.ui.commons.Panel("optetSubPanelId", {
 		collapsed: false,
 		title: new sap.ui.core.Title({
 			text: "SAP Labs France - OPTET Project",
 			icon: "images/SAP-Logo.png"
 		})
 	});
-	var optetLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 2,
-		width: "100%",
-		widths: ["70%", "30%"]
-	});
-	var optetDesc = new sap.ui.commons.TextView({text: oController.getOptetDesc()});
-	var optetLogo = new sap.ui.commons.Image({
+	var optetDesc = new sap.ui.commons.TextView("optetDescId", {text: oController.getOptetDesc()});
+	var optetLogo = new sap.ui.commons.Image("optetLogoId", {
 		alt: "OPTET Project",
 		src: "images/optet-logo.png"
 	});
-	optetLayout.createRow(optetDesc, optetLogo);
-	optetSubPanel.addContent(optetLayout);
-	workExperienceLayout.createRow(optetSubPanel);
-	
-	workExperiencePanelRef.addContent(workExperienceLayout);
+	optetSubPanel.addContent(optetDesc);
+	optetSubPanel.addContent(optetLogo);
+	workExperiencePanelRef.addContent(optetSubPanel);
 }
 
 function setContentGitHubPanel(oController) {
 	var gitHubPanelRef = sap.ui.getCore().byId("gitHubPanelId");
 
-	var gitHubLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 2,
-		width: "90%",
-		widths: ["30%", "70%"]
-	});
-	
-	var gitLinkLabel = new sap.ui.commons.TextView({text: "You can find all my public works on this Git repository: "});
-	var gitLink = new sap.ui.commons.Link({
+	var gitLinkLabel = new sap.ui.commons.TextView("gitLinkLabelId", {text: "You can find all my public works on this Git repository: "});
+	var gitLink = new sap.ui.commons.Link("gitLinkId", {
 		text: "Greedy90",
 		press: function(oEvent) {
 			window.open("https://github.com/Greedy90", "_blank");
 		}
 	});
 	
-	gitHubLayout.createRow(gitLinkLabel, gitLink);
-
-	gitHubPanelRef.addContent(gitHubLayout);
+	gitHubPanelRef.addContent(gitLinkLabel);
+	gitHubPanelRef.addContent(gitLink);
 }
 
 function setContentContactsPanel(oController) {
 	var contactsPanelRef = sap.ui.getCore().byId("contactsPanelId");
 
-	var contactsLayout = new sap.ui.commons.layout.MatrixLayout({
-		columns: 3,
-		width: "90%",
-		widths: ["10%", "15%", "75%"]
-	});
-
-	var iconPicture = new sap.ui.commons.Image({
+	var mailIcon = new sap.ui.commons.Image("mailIconId", {
 		alt: "Mail icon",
 		src: "images/Mail-icon.png",
 		width: "25px",
 		press: oController.getMailto
 	});
-	var firstMailField = new sap.ui.commons.TextView({
+	var mailAddress = new sap.ui.commons.TextView("mailAddressId", {
 		text: oController.getMail(),
 		design: sap.ui.commons.TextViewDesign.H6
 	});
-	var firstMailCell = new sap.ui.commons.layout.MatrixLayoutCell({
-		colSpan: 2,
-		hAlign: sap.ui.commons.layout.HAlign.Left,
-		content: [firstMailField]
-	});
-	contactsLayout.createRow(iconPicture, firstMailCell);
-	
-	var pubKeyBtn = new sap.ui.commons.Button({
+	var pubKeyBtn = new sap.ui.commons.Button("pubKeyBtnId", {
 		text: "Get my Public Key (PGP)",
 		style: sap.ui.commons.ButtonStyle.Emph,
 		press: function(oEvent) {
-			var pubKeyString = new sap.ui.commons.TextView({
-				design: sap.ui.commons.TextViewDesign.Monospace,
-				text: oController.getPubKey()
-			});
-			
 			var rsaKeyDialog = new sap.ui.commons.Dialog("rsaKeyDialogId", {
 				modal: true,
 				keepInWindow: true,
@@ -144,7 +130,10 @@ function setContentContactsPanel(oController) {
 				//width: "40%",
 				//height: "30%",
 				title: "PGP - Public Key",
-				content: [pubKeyString],
+				content: [new sap.ui.commons.TextView({
+					design: sap.ui.commons.TextViewDesign.Monospace,
+					text: oController.getPubKey()
+				})],
 				closed: function(oEvent) {
 					sap.ui.getCore().byId("rsaKeyDialogId").destroy();
 				}
@@ -153,11 +142,7 @@ function setContentContactsPanel(oController) {
 			rsaKeyDialog.open();
 		}
 	});
-	var pubKeyBtnCell = new sap.ui.commons.layout.MatrixLayoutCell({
-		colSpan: 2,
-		content: [pubKeyBtn]
-	});
-	var facebookIcon = new sap.ui.commons.Image({
+	var facebookIcon = new sap.ui.commons.Image("facebookIconId", {
 		alt: "Facebook Icon",
 		src: "images/Facebook-logo.png",
 		width: "20px",
@@ -165,7 +150,7 @@ function setContentContactsPanel(oController) {
 			window.open("https://www.facebook.com/marco.terrinoni", "_blank");
 		}
 	});
-	var twitterIcon = new sap.ui.commons.Image({
+	var twitterIcon = new sap.ui.commons.Image("twitterIconId", {
 		alt: "Twitter Icon",
 		src: "images/Twitter-logo.png",
 		width: "20px",
@@ -173,7 +158,7 @@ function setContentContactsPanel(oController) {
 			window.open("https://twitter.com/TerrinoniMarco", "_blank");
 		}
 	});
-	var linkedInIcon = new sap.ui.commons.Image({
+	var linkedInIcon = new sap.ui.commons.Image("linkedInIconId", {
 		alt: "LinkedIn Icon",
 		src: "images/linkedin-icon.png",
 		width: "20px",
@@ -181,14 +166,13 @@ function setContentContactsPanel(oController) {
 			window.open("http://fr.linkedin.com/pub/marco-terrinoni/79/a66/963/", "_blank");
 		}
 	});
-	var socialLinksCell = new sap.ui.commons.layout.MatrixLayoutCell({
-		hAlign: sap.ui.commons.layout.HAlign.Left,
-		//colSpan: 2,
-		content: [facebookIcon, twitterIcon, linkedInIcon]
-	});
-	contactsLayout.createRow(pubKeyBtnCell, socialLinksCell);
 
-	contactsPanelRef.addContent(contactsLayout);
+	contactsPanelRef.addContent(mailIcon);
+	contactsPanelRef.addContent(mailAddress);
+	contactsPanelRef.addContent(pubKeyBtn);
+	contactsPanelRef.addContent(facebookIcon);
+	contactsPanelRef.addContent(twitterIcon);
+	contactsPanelRef.addContent(linkedInIcon);
 }
 
 sap.ui.jsview("personalwebpage.mainView", {
@@ -209,24 +193,35 @@ sap.ui.jsview("personalwebpage.mainView", {
 	 */ 
 	createContent: function(oController) {
 		var homePanel = new sap.ui.commons.Panel("homePanelId", {
+			width: "70%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Marco Terrinoni"})
 		});
 		setContentHomePanel(oController);
 		
 		var aboutMePanel = new sap.ui.commons.Panel("aboutMePanelId", {
+			width: "70%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Personal Profile"})
 		});
 		setContentAboutMePanel(oController);
 		
+		var universityPanel = new sap.ui.commons.Panel("universityPanelId", {
+			width: "70%",
+			showCollapseIcon: false,
+			title: new sap.ui.core.Title({text: "Available Material"})
+		});;
+		setContentUniversityPanel(oController);
+		
 		var workExperiencePanel = new sap.ui.commons.Panel("workExperiencePanelId", {
+			width: "70%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Previous Work Experience"})
 		});
 		setContentWorkExperiencePanel(oController);
 		
 		var gitHubPanel = new sap.ui.commons.Panel("gitHubPanelId", {
+			width: "70%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({
 				text: "Personal Repository",
@@ -236,6 +231,7 @@ sap.ui.jsview("personalwebpage.mainView", {
 		setContentGitHubPanel(oController);
 		
 		var contactsPanel = new sap.ui.commons.Panel("contactsPanelId", {
+			width: "70%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Contact Me"})
 		});
@@ -255,6 +251,7 @@ sap.ui.jsview("personalwebpage.mainView", {
 			designType: sap.ui.ux3.ShellDesignType.Standard,
 			worksetItems: [new sap.ui.ux3.NavigationItem("navHome", {text: "Home"}),
 			               new sap.ui.ux3.NavigationItem("navAboutMe", {text: "About Me"}),
+			               new sap.ui.ux3.NavigationItem("navUniversity", {text: "University"}),
 			               new sap.ui.ux3.NavigationItem("navWorkExp", {text: "Work Experience"}),
 			               new sap.ui.ux3.NavigationItem("navGitHub", {text: "GitHub"}),
 			               new sap.ui.ux3.NavigationItem("navContacts", {text: "Contacts"})],
@@ -267,6 +264,9 @@ sap.ui.jsview("personalwebpage.mainView", {
 						break;
 					case "navAboutMe":
 						mainShellRef.setContent(aboutMePanel);
+						break;
+					case "navUniversity":
+						mainShellRef.setContent(universityPanel);
 						break;
 					case "navWorkExp":
 						mainShellRef.setContent(workExperiencePanel);

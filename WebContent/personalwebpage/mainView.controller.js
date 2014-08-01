@@ -49,6 +49,10 @@ sap.ui.controller("personalwebpage.mainView", {
 			   "uis tortor, neque a hendrerit nec odio mollis.\n";
 	},
 	
+	getAboutMe: function() {
+		return this.getLoremIpsum();
+	},
+	
 	get2CareDesc: function() {
 		return this.getLoremIpsum();
 	},
