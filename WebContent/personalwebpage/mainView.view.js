@@ -210,7 +210,7 @@ sap.ui.jsview("personalwebpage.mainView", {
 			width: "70%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Available Material"})
-		});;
+		});
 		setContentUniversityPanel(oController);
 		
 		var workExperiencePanel = new sap.ui.commons.Panel("workExperiencePanelId", {
