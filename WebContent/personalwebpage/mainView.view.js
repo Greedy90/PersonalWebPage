@@ -65,7 +65,11 @@ function setContentWorkExperiencePanel(oController) {
 			icon: "images/gruppo_sans2.png"
 		})
 	});
-	var twoCareDesc = new sap.ui.commons.TextView("twoCareDescId", {text: oController.get2CareDesc()});
+	//var twoCareDesc = new sap.ui.commons.TextView("twoCareDescId", {text: oController.get2CareDesc()});
+	var twoCareDesc = new sap.ui.core.HTML("twoCareDescId", {
+		content: oController.get2CareDesc(),
+		sanitizeContent: true
+	});
 	var twoCareLogo = new sap.ui.commons.Image("twoCareLogoId", {
 		alt: "2care",
 		src: "images/2care-logo.png"
@@ -81,7 +85,11 @@ function setContentWorkExperiencePanel(oController) {
 			icon: "images/SAP-Logo.png"
 		})
 	});
-	var optetDesc = new sap.ui.commons.TextView("optetDescId", {text: oController.getOptetDesc()});
+	//var optetDesc = new sap.ui.commons.TextView("optetDescId", {text: oController.getOptetDesc()});
+	var optetDesc = new sap.ui.core.HTML("optetDescId", {
+		content: oController.getOptetDesc(),
+		sanitizeContent: true
+	});
 	var optetLogo = new sap.ui.commons.Image("optetLogoId", {
 		alt: "OPTET Project",
 		src: "images/optet-logo.png"

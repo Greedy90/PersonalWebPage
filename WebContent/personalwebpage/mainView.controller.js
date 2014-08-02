@@ -54,11 +54,43 @@ sap.ui.controller("personalwebpage.mainView", {
 	},
 	
 	get2CareDesc: function() {
-		return this.getLoremIpsum();
+		return "<p>Internship at <a href='http://www.san.it/home.html' target='_" +
+				"blank'>Gruppo SAN|S2 s.r.l</a> (Turin), from March to July 2012" +
+				".</p><p>The final purpose of the stage was to get involved in t" +
+				"he development of <a href='http://www.san.it/prodotti/tocare.ht" +
+				"ml' target='_blank'>2care</a>, an ERP for an health care contex" +
+				"t in a Cloud Computing architecture based on SaaS concept; in p" +
+				"articular, the work included database creation (ER model defini" +
+				"tion and implementation) and Web user interfaces implementation" +
+				", based on a proprietary framework.</p><p>The technologies and " +
+				"languages involved were the following:<ul><li>SQL</li><li><a hr" +
+				"ef='http://www.postgresql.org/' target'_blank'>PostgreSQL</a></" +
+				"li><li>HTML</li><li>JavaScript</li><li>XML</li><li><a href='htt" +
+				"p://tortoisesvn.net/' target='_blank'>TortoiseSVN</a></li></ul>" +
+				"</p>";
 	},
 	
 	getOptetDesc: function() {
-		return this.getLoremIpsum();
+		return "<p>Internship at <a href='http://www.sap.com/france/about/sap-la" +
+				"bs-france.html' target='_blank'>SAP Labs France</a> (Sophia-Ant" +
+				"ipolis), from March to September 2014.</p><p>In the context of " +
+				"the <a href='http://www.optet.eu/' target='_blank'>OPTET Projec" +
+				"t</a>, the internship consisted in the development of a Trustwo" +
+				"rthiness Marketplace prototype, focusing on the trustworthiness" +
+				" aspects of the exposed offerings.</p><p>The technologies and l" +
+				"anguages involved were the following:	<ul><li>JavaScript</li><" +
+				"li>JSON</li><li><a href='http://nodejs.org/' target='_blank'>No" +
+				"de.js</a></li><li><a href='http://expressjs.com/' target='_blan" +
+				"k'>Express</a></li><li><a href='http://passportjs.org/' target=" +
+				"'_blank'>Passport</a></li><li><a href='http://mongoosejs.com/' " +
+				"target='_blank'>Mongoose</a></li><li><a href='http://www.mongod" +
+				"b.org/' target='_blank'>MongoDB</a></li><li><a href='https://sa" +
+				"pui5.hana.ondemand.com/sdk/#content/Overview.html' target='_bla" +
+				"nk'>SAPUI5</a> / <a href='http://sap.github.io/openui5/' target" +
+				"='_blank'>OpenUI5</a></li><li>RDF</li><li>USDL</li><li><a href=" +
+				"'http://git-scm.com/' target='_blank'>Git</a></li><li><a href='" +
+				"https://code.google.com/p/gerrit/' target='_blank'>Gerrit</a></" +
+				"li</ul></p>";
 	},
 	
 	getMailto: function(oEvent) {
