@@ -13,13 +13,14 @@ function setContentHomePanel(oController) {
 function setContentAboutMePanel(oController) {
 	var aboutMePanelRef = sap.ui.getCore().byId("aboutMePanelId");
 
-	
-	var abouMeDesc = new sap.ui.commons.TextView("abouMeDescId", {text: oController.getAboutMe()});
+	var abouMeDesc = new sap.ui.commons.TextView("abouMeDescId", {
+		text: oController.getAboutMe(),
+		tooltip: "About me"
+	});
 	var photo = new sap.ui.commons.Image("photoId", {
 		src: "images/marco.jpg",
 		tooltip: "Marco Terrinoni",
-		alt: "My photo",
-		width: "20%"
+		alt: "My photo"
 	});
 
 	aboutMePanelRef.addContent(abouMeDesc);
@@ -201,35 +202,35 @@ sap.ui.jsview("personalwebpage.mainView", {
 	 */ 
 	createContent: function(oController) {
 		var homePanel = new sap.ui.commons.Panel("homePanelId", {
-			width: "70%",
+			width: "100%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Marco Terrinoni"})
 		});
 		setContentHomePanel(oController);
 		
 		var aboutMePanel = new sap.ui.commons.Panel("aboutMePanelId", {
-			width: "70%",
+			width: "100%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Personal Profile"})
 		});
 		setContentAboutMePanel(oController);
 		
 		var universityPanel = new sap.ui.commons.Panel("universityPanelId", {
-			width: "70%",
+			width: "100%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Available Material"})
 		});
 		setContentUniversityPanel(oController);
 		
 		var workExperiencePanel = new sap.ui.commons.Panel("workExperiencePanelId", {
-			width: "70%",
+			width: "100%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Previous Work Experience"})
 		});
 		setContentWorkExperiencePanel(oController);
 		
 		var gitHubPanel = new sap.ui.commons.Panel("gitHubPanelId", {
-			width: "70%",
+			width: "100%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({
 				text: "Personal Repository",
@@ -239,7 +240,7 @@ sap.ui.jsview("personalwebpage.mainView", {
 		setContentGitHubPanel(oController);
 		
 		var contactsPanel = new sap.ui.commons.Panel("contactsPanelId", {
-			width: "70%",
+			width: "100%",
 			showCollapseIcon: false,
 			title: new sap.ui.core.Title({text: "Contact Me"})
 		});
@@ -290,7 +291,8 @@ sap.ui.jsview("personalwebpage.mainView", {
 						break;
 				}
 			},
-			content: homePanel
+			//content: homePanel
+			content: aboutMePanel
 		});
 		
 		return mainShell;

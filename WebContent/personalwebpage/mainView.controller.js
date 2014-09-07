@@ -50,7 +50,12 @@ sap.ui.controller("personalwebpage.mainView", {
 	},
 	
 	getAboutMe: function() {
-		return this.getLoremIpsum();
+		var str = "";
+		for (var i = 0; i < 3; i++) {
+			str += this.getLoremIpsum();
+		};
+		return str;
+		//return this.getLoremIpsum();
 	},
 	
 	get2CareDesc: function() {
