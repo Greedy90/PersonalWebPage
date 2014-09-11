@@ -105,9 +105,9 @@ function setContentGitHubPanel(oController) {
 
 	var gitLinkLabel = new sap.ui.commons.TextView("gitLinkLabelId", {text: "You can find all my public works on this Git repository: "});
 	var gitLink = new sap.ui.commons.Link("gitLinkId", {
-		text: "Greedy90",
+		text: "terrinoni",
 		press: function(oEvent) {
-			window.open("https://github.com/Greedy90", "_blank");
+			window.open("https://github.com/terrinoni", "_blank");
 		}
 	});
 	
