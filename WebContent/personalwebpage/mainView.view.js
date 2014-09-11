@@ -291,8 +291,8 @@ sap.ui.jsview("personalwebpage.mainView", {
 						break;
 				}
 			},
-			//content: homePanel
-			content: aboutMePanel
+			content: homePanel
+			//content: aboutMePanel
 		});
 		
 		return mainShell;
