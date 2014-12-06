@@ -1,6 +1,6 @@
 PersonalWebPage
 ===============
 
-Personal web page, implemented by using JavaScript and OpenUI5
+HTML5 based branch.
 
 Accessible at http://marcoterrinoni.altervista.org/
