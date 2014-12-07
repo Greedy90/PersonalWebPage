@@ -120,7 +120,7 @@
 
 		a:hover
 		{
-			color: #E27689;
+			color: #33CC33;
 			border-bottom-color: rgba(255,255,255,0);
 		}
 
@@ -671,7 +671,7 @@
 
 							#nav ul li a.active span:before
 							{
-								color: #e27689;
+								color: #FFF;
 							}
 
 /*********************************************************************************/
@@ -766,7 +766,7 @@
 			#main > section.one
 			{
 				background-color: #81918E;
-				background-image: url('../images/banner.jpg');
+				background-image: url('../images/green-aurora.jpg');
 			}
 
 			#main > section.two
