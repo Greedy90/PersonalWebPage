@@ -1,21 +1,18 @@
-PersonalWebPage
-===============
+#PersonalWebPage
 
 HTML5 based branch.
 
 Accessible at http://marcoterrinoni.altervista.org/
 
-HTML5 UP Template
-=================
+##HTML5 UP Template
 
 Prologue by HTML5 UP
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-
 This is Prologue, a simple, single page responsive site template. It features a
 clean, minimalistic design and a sticky sidebar with navigation-linked scrolling.
-	
+
 Demo content images* are courtesy of the ridiculously talented Felicia Simion. Check out
 more of her amazing work over at deviantART:
 
@@ -32,13 +29,12 @@ images you can use for pretty much whatever.
 AJ
 n33.co @n33co dribbble.com/n33
 
-
 Credits:
 
 	Demo Images:
 		Felicia Simion (ineedchemicalx.deviantart.com)
 		Unsplash (unsplash.com)
-		
+
 	Icons:
 		Font Awesome (fortawesome.github.com/Font-Awesome)
 
